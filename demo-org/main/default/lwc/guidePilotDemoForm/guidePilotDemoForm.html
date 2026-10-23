@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title={title} icon-name="standard:record">
+        <div class="slds-p-horizontal_small">
+            <p class="slds-text-body_small slds-text-color_weak slds-m-bottom_x-small">
+                Click into a field, then ask GuidePilot "What should I pick here?"
+            </p>
+            <lightning-record-edit-form object-api-name={object} record-id={recordId} onsuccess={handleSuccess}>
+                <lightning-messages></lightning-messages>
+                <template for:each={fields} for:item="f">
+                    <!-- focusin bubbles out of the input, so one handler per field wrapper is enough -->
+                    <div key={f} data-field={f} onfocusin={handleFocus}>
+                        <lightning-input-field field-name={f}></lightning-input-field>
+                    </div>
+                </template>
+                <div class="slds-m-top_small">
+                    <lightning-button variant="brand" type="submit" label="Save"></lightning-button>
+                </div>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>

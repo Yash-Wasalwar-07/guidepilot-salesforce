@@ -1,0 +1,1054 @@
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "Acct1"
+      },
+      "Name": "Riverside General Hospital",
+      "Type": "Customer",
+      "Industry": "Healthcare",
+      "BillingCity": "Boston",
+      "Description": "GuidePilot test data",
+      "Opportunities": {
+        "records": [
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp1"
+            },
+            "Name": "Riverside - Hospital Formulary Renewal",
+            "StageName": "Negotiation/Review",
+            "CloseDate": "2026-09-20",
+            "Amount": 135000,
+            "Type": "Existing Customer - Replacement",
+            "LeadSource": "Web",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp16"
+            },
+            "Name": "Riverside - Vaccine Supply Agreement",
+            "StageName": "Closed Won",
+            "CloseDate": "2026-09-06",
+            "Amount": 255000,
+            "Type": "Existing Customer - Replacement",
+            "LeadSource": "Trade Show",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp31"
+            },
+            "Name": "Riverside - Respiratory Line Extension",
+            "StageName": "Qualification",
+            "CloseDate": "2027-01-04",
+            "Amount": 55000,
+            "Type": "Existing Customer - Upgrade",
+            "LeadSource": "Web",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp46"
+            },
+            "Name": "Riverside - Dermatology Launch",
+            "StageName": "Proposal/Price Quote",
+            "CloseDate": "2027-02-14",
+            "Amount": 320000,
+            "Type": "New Customer",
+            "LeadSource": "Trade Show",
+            "Description": "GuidePilot test data"
+          }
+        ]
+      },
+      "AccountNumber": "GPTEST-001",
+      "BillingCountryCode": "US",
+      "BillingStateCode": "MA"
+    },
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "Acct2"
+      },
+      "Name": "St. Mary's Medical Center",
+      "Type": "Customer",
+      "Industry": "Healthcare",
+      "BillingCity": "Chicago",
+      "Description": "GuidePilot test data",
+      "Opportunities": {
+        "records": [
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp2"
+            },
+            "Name": "St. - Respiratory Line Extension",
+            "StageName": "Needs Analysis",
+            "CloseDate": "2026-11-13",
+            "Amount": 200000,
+            "Type": "New Customer",
+            "LeadSource": "Phone Inquiry",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp17"
+            },
+            "Name": "St. - Immunology Starter Kit",
+            "StageName": "Prospecting",
+            "CloseDate": "2027-03-17",
+            "Amount": 365000,
+            "Type": "New Customer",
+            "LeadSource": "Web",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp32"
+            },
+            "Name": "St. - Patient Support Program",
+            "StageName": "Needs Analysis",
+            "CloseDate": "2027-04-01",
+            "Amount": 160000,
+            "Type": "Existing Customer - Replacement",
+            "LeadSource": "Phone Inquiry",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp47"
+            },
+            "Name": "St. - Diabetes Care Program",
+            "StageName": "Prospecting",
+            "CloseDate": "2026-11-17",
+            "Amount": 255000,
+            "Type": "New Customer",
+            "LeadSource": "Trade Show",
+            "Description": "GuidePilot test data"
+          }
+        ]
+      },
+      "AccountNumber": "GPTEST-002",
+      "BillingCountryCode": "US",
+      "BillingStateCode": "IL"
+    },
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "Acct3"
+      },
+      "Name": "Lakeview Oncology Clinic",
+      "Type": "Prospect",
+      "Industry": "Healthcare",
+      "BillingCity": "Minneapolis",
+      "Description": "GuidePilot test data",
+      "Opportunities": {
+        "records": [
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp3"
+            },
+            "Name": "Lakeview - Vaccine Supply Agreement",
+            "StageName": "Closed Lost",
+            "CloseDate": "2026-08-18",
+            "Amount": 190000,
+            "Type": "Existing Customer - Upgrade",
+            "LeadSource": "Partner Referral",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp18"
+            },
+            "Name": "Lakeview - Patient Support Program",
+            "StageName": "Qualification",
+            "CloseDate": "2027-04-25",
+            "Amount": 185000,
+            "Type": "Existing Customer - Replacement",
+            "LeadSource": "Partner Referral",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp33"
+            },
+            "Name": "Lakeview - Oncology Formulary Listing",
+            "StageName": "Negotiation/Review",
+            "CloseDate": "2026-11-03",
+            "Amount": 465000,
+            "Type": "Existing Customer - Replacement",
+            "LeadSource": "Web",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp48"
+            },
+            "Name": "Lakeview - Dermatology Launch",
+            "StageName": "Proposal/Price Quote",
+            "CloseDate": "2027-01-08",
+            "Amount": 195000,
+            "Type": "Existing Customer - Upgrade",
+            "LeadSource": "Other",
+            "Description": "GuidePilot test data"
+          }
+        ]
+      },
+      "AccountNumber": "GPTEST-003",
+      "BillingCountryCode": "US",
+      "BillingStateCode": "MN"
+    },
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "Acct4"
+      },
+      "Name": "Northside Cardiology Associates",
+      "Type": "Customer",
+      "Industry": "Healthcare",
+      "BillingCity": "Atlanta",
+      "Description": "GuidePilot test data",
+      "Opportunities": {
+        "records": [
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp4"
+            },
+            "Name": "Northside - Neurology Sample Program",
+            "StageName": "Prospecting",
+            "CloseDate": "2026-12-13",
+            "Amount": 240000,
+            "Type": "New Customer",
+            "LeadSource": "Partner Referral",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp19"
+            },
+            "Name": "Northside - Immunology Starter Kit",
+            "StageName": "Closed Won",
+            "CloseDate": "2026-08-12",
+            "Amount": 290000,
+            "Type": "New Customer",
+            "LeadSource": "Trade Show",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp34"
+            },
+            "Name": "Northside - Oncology Formulary Listing",
+            "StageName": "Needs Analysis",
+            "CloseDate": "2026-12-30",
+            "Amount": 35000,
+            "Type": "Existing Customer - Upgrade",
+            "LeadSource": "Web",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp49"
+            },
+            "Name": "Northside - Diabetes Care Program",
+            "StageName": "Closed Won",
+            "CloseDate": "2026-02-01",
+            "Amount": 135000,
+            "Type": "Existing Customer - Upgrade",
+            "LeadSource": "Phone Inquiry",
+            "Description": "GuidePilot test data"
+          }
+        ]
+      },
+      "AccountNumber": "GPTEST-004",
+      "BillingCountryCode": "US",
+      "BillingStateCode": "GA"
+    },
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "Acct5"
+      },
+      "Name": "Pacific Coast Children's Hospital",
+      "Type": "Prospect",
+      "Industry": "Healthcare",
+      "BillingCity": "San Diego",
+      "Description": "GuidePilot test data",
+      "Opportunities": {
+        "records": [
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp5"
+            },
+            "Name": "Pacific - Hospital Formulary Renewal",
+            "StageName": "Qualification",
+            "CloseDate": "2026-10-09",
+            "Amount": 420000,
+            "Type": "New Customer",
+            "LeadSource": "Other",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp20"
+            },
+            "Name": "Pacific - Immunology Starter Kit",
+            "StageName": "Prospecting",
+            "CloseDate": "2026-11-02",
+            "Amount": 335000,
+            "Type": "New Customer",
+            "LeadSource": "Other",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp35"
+            },
+            "Name": "Pacific - Respiratory Line Extension",
+            "StageName": "Closed Won",
+            "CloseDate": "2026-01-18",
+            "Amount": 190000,
+            "Type": "Existing Customer - Replacement",
+            "LeadSource": "Trade Show",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp50"
+            },
+            "Name": "Pacific - Hospital Formulary Renewal",
+            "StageName": "Negotiation/Review",
+            "CloseDate": "2026-11-16",
+            "Amount": 360000,
+            "Type": "New Customer",
+            "LeadSource": "Partner Referral",
+            "Description": "GuidePilot test data"
+          }
+        ]
+      },
+      "AccountNumber": "GPTEST-005",
+      "BillingCountryCode": "US",
+      "BillingStateCode": "CA"
+    },
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "Acct6"
+      },
+      "Name": "Summit Neurology Group",
+      "Type": "Customer",
+      "Industry": "Healthcare",
+      "BillingCity": "Denver",
+      "Description": "GuidePilot test data",
+      "Opportunities": {
+        "records": [
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp6"
+            },
+            "Name": "Summit - Diabetes Care Program",
+            "StageName": "Qualification",
+            "CloseDate": "2026-09-28",
+            "Amount": 310000,
+            "Type": "Existing Customer - Upgrade",
+            "LeadSource": "Partner Referral",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp21"
+            },
+            "Name": "Summit - Immunology Starter Kit",
+            "StageName": "Needs Analysis",
+            "CloseDate": "2026-11-29",
+            "Amount": 420000,
+            "Type": "Existing Customer - Replacement",
+            "LeadSource": "Other",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp36"
+            },
+            "Name": "Summit - Patient Support Program",
+            "StageName": "Qualification",
+            "CloseDate": "2026-12-26",
+            "Amount": 95000,
+            "Type": "Existing Customer - Replacement",
+            "LeadSource": "Other",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp51"
+            },
+            "Name": "Summit - Cardiology Portfolio",
+            "StageName": "Prospecting",
+            "CloseDate": "2026-11-16",
+            "Amount": 385000,
+            "Type": "Existing Customer - Upgrade",
+            "LeadSource": "Other",
+            "Description": "GuidePilot test data"
+          }
+        ]
+      },
+      "AccountNumber": "GPTEST-006",
+      "BillingCountryCode": "US",
+      "BillingStateCode": "CO"
+    },
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "Acct7"
+      },
+      "Name": "Harborview Family Practice",
+      "Type": "Prospect",
+      "Industry": "Healthcare",
+      "BillingCity": "Seattle",
+      "Description": "GuidePilot test data",
+      "Opportunities": {
+        "records": [
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp7"
+            },
+            "Name": "Harborview - Respiratory Line Extension",
+            "StageName": "Closed Lost",
+            "CloseDate": "2025-12-27",
+            "Amount": 450000,
+            "Type": "Existing Customer - Upgrade",
+            "LeadSource": "Web",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp22"
+            },
+            "Name": "Harborview - Diabetes Care Program",
+            "StageName": "Prospecting",
+            "CloseDate": "2026-12-22",
+            "Amount": 250000,
+            "Type": "New Customer",
+            "LeadSource": "Other",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp37"
+            },
+            "Name": "Harborview - Dermatology Launch",
+            "StageName": "Proposal/Price Quote",
+            "CloseDate": "2027-03-29",
+            "Amount": 170000,
+            "Type": "Existing Customer - Upgrade",
+            "LeadSource": "Trade Show",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp52"
+            },
+            "Name": "Harborview - Diabetes Care Program",
+            "StageName": "Closed Lost",
+            "CloseDate": "2026-01-10",
+            "Amount": 50000,
+            "Type": "Existing Customer - Replacement",
+            "LeadSource": "Web",
+            "Description": "GuidePilot test data"
+          }
+        ]
+      },
+      "AccountNumber": "GPTEST-007",
+      "BillingCountryCode": "US",
+      "BillingStateCode": "WA"
+    },
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "Acct8"
+      },
+      "Name": "Greenfield Diabetes Center",
+      "Type": "Customer",
+      "Industry": "Healthcare",
+      "BillingCity": "Austin",
+      "Description": "GuidePilot test data",
+      "Opportunities": {
+        "records": [
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp8"
+            },
+            "Name": "Greenfield - Cardiology Portfolio",
+            "StageName": "Closed Lost",
+            "CloseDate": "2026-06-13",
+            "Amount": 215000,
+            "Type": "Existing Customer - Upgrade",
+            "LeadSource": "Partner Referral",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp23"
+            },
+            "Name": "Greenfield - Cardiology Portfolio",
+            "StageName": "Closed Lost",
+            "CloseDate": "2026-01-10",
+            "Amount": 395000,
+            "Type": "Existing Customer - Upgrade",
+            "LeadSource": "Trade Show",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp38"
+            },
+            "Name": "Greenfield - Oncology Formulary Listing",
+            "StageName": "Negotiation/Review",
+            "CloseDate": "2026-12-20",
+            "Amount": 75000,
+            "Type": "Existing Customer - Replacement",
+            "LeadSource": "Trade Show",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp53"
+            },
+            "Name": "Greenfield - Diabetes Care Program",
+            "StageName": "Prospecting",
+            "CloseDate": "2027-06-07",
+            "Amount": 55000,
+            "Type": "Existing Customer - Replacement",
+            "LeadSource": "Web",
+            "Description": "GuidePilot test data"
+          }
+        ]
+      },
+      "AccountNumber": "GPTEST-008",
+      "BillingCountryCode": "US",
+      "BillingStateCode": "TX"
+    },
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "Acct9"
+      },
+      "Name": "Metro Respiratory Institute",
+      "Type": "Customer",
+      "Industry": "Healthcare",
+      "BillingCity": "Philadelphia",
+      "Description": "GuidePilot test data",
+      "Opportunities": {
+        "records": [
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp9"
+            },
+            "Name": "Metro - Respiratory Line Extension",
+            "StageName": "Proposal/Price Quote",
+            "CloseDate": "2026-11-18",
+            "Amount": 375000,
+            "Type": "Existing Customer - Replacement",
+            "LeadSource": "Partner Referral",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp24"
+            },
+            "Name": "Metro - Oncology Formulary Listing",
+            "StageName": "Needs Analysis",
+            "CloseDate": "2026-11-06",
+            "Amount": 245000,
+            "Type": "Existing Customer - Upgrade",
+            "LeadSource": "Phone Inquiry",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp39"
+            },
+            "Name": "Metro - Vaccine Supply Agreement",
+            "StageName": "Proposal/Price Quote",
+            "CloseDate": "2027-01-31",
+            "Amount": 275000,
+            "Type": "Existing Customer - Upgrade",
+            "LeadSource": "Web",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp54"
+            },
+            "Name": "Metro - Respiratory Line Extension",
+            "StageName": "Qualification",
+            "CloseDate": "2027-04-23",
+            "Amount": 270000,
+            "Type": "New Customer",
+            "LeadSource": "Other",
+            "Description": "GuidePilot test data"
+          }
+        ]
+      },
+      "AccountNumber": "GPTEST-009",
+      "BillingCountryCode": "US",
+      "BillingStateCode": "PA"
+    },
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "Acct10"
+      },
+      "Name": "Valley Rheumatology Partners",
+      "Type": "Prospect",
+      "Industry": "Healthcare",
+      "BillingCity": "Phoenix",
+      "Description": "GuidePilot test data",
+      "Opportunities": {
+        "records": [
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp10"
+            },
+            "Name": "Valley - Dermatology Launch",
+            "StageName": "Qualification",
+            "CloseDate": "2026-09-30",
+            "Amount": 265000,
+            "Type": "Existing Customer - Replacement",
+            "LeadSource": "Trade Show",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp25"
+            },
+            "Name": "Valley - Respiratory Line Extension",
+            "StageName": "Negotiation/Review",
+            "CloseDate": "2026-11-16",
+            "Amount": 375000,
+            "Type": "New Customer",
+            "LeadSource": "Web",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp40"
+            },
+            "Name": "Valley - Cardiology Portfolio",
+            "StageName": "Closed Won",
+            "CloseDate": "2026-08-19",
+            "Amount": 270000,
+            "Type": "Existing Customer - Replacement",
+            "LeadSource": "Partner Referral",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp55"
+            },
+            "Name": "Valley - Hospital Formulary Renewal",
+            "StageName": "Qualification",
+            "CloseDate": "2027-01-04",
+            "Amount": 395000,
+            "Type": "New Customer",
+            "LeadSource": "Other",
+            "Description": "GuidePilot test data"
+          }
+        ]
+      },
+      "AccountNumber": "GPTEST-010",
+      "BillingCountryCode": "US",
+      "BillingStateCode": "AZ"
+    },
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "Acct11"
+      },
+      "Name": "Eastside Dermatology Clinic",
+      "Type": "Customer",
+      "Industry": "Healthcare",
+      "BillingCity": "Miami",
+      "Description": "GuidePilot test data",
+      "Opportunities": {
+        "records": [
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp11"
+            },
+            "Name": "Eastside - Immunology Starter Kit",
+            "StageName": "Prospecting",
+            "CloseDate": "2026-12-08",
+            "Amount": 100000,
+            "Type": "New Customer",
+            "LeadSource": "Other",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp26"
+            },
+            "Name": "Eastside - Dermatology Launch",
+            "StageName": "Needs Analysis",
+            "CloseDate": "2027-05-08",
+            "Amount": 55000,
+            "Type": "Existing Customer - Replacement",
+            "LeadSource": "Phone Inquiry",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp41"
+            },
+            "Name": "Eastside - Oncology Formulary Listing",
+            "StageName": "Qualification",
+            "CloseDate": "2027-05-25",
+            "Amount": 170000,
+            "Type": "New Customer",
+            "LeadSource": "Phone Inquiry",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp56"
+            },
+            "Name": "Eastside - Vaccine Supply Agreement",
+            "StageName": "Qualification",
+            "CloseDate": "2026-11-22",
+            "Amount": 435000,
+            "Type": "Existing Customer - Replacement",
+            "LeadSource": "Other",
+            "Description": "GuidePilot test data"
+          }
+        ]
+      },
+      "AccountNumber": "GPTEST-011",
+      "BillingCountryCode": "US",
+      "BillingStateCode": "FL"
+    },
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "Acct12"
+      },
+      "Name": "University Medical Center",
+      "Type": "Customer",
+      "Industry": "Healthcare",
+      "BillingCity": "Ann Arbor",
+      "Description": "GuidePilot test data",
+      "Opportunities": {
+        "records": [
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp12"
+            },
+            "Name": "University - Immunology Starter Kit",
+            "StageName": "Proposal/Price Quote",
+            "CloseDate": "2027-03-19",
+            "Amount": 385000,
+            "Type": "Existing Customer - Upgrade",
+            "LeadSource": "Other",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp27"
+            },
+            "Name": "University - Dermatology Launch",
+            "StageName": "Prospecting",
+            "CloseDate": "2026-12-04",
+            "Amount": 365000,
+            "Type": "New Customer",
+            "LeadSource": "Partner Referral",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp42"
+            },
+            "Name": "University - Dermatology Launch",
+            "StageName": "Closed Won",
+            "CloseDate": "2026-01-07",
+            "Amount": 100000,
+            "Type": "Existing Customer - Upgrade",
+            "LeadSource": "Phone Inquiry",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp57"
+            },
+            "Name": "University - Neurology Sample Program",
+            "StageName": "Closed Won",
+            "CloseDate": "2026-01-14",
+            "Amount": 180000,
+            "Type": "New Customer",
+            "LeadSource": "Partner Referral",
+            "Description": "GuidePilot test data"
+          }
+        ]
+      },
+      "AccountNumber": "GPTEST-012",
+      "BillingCountryCode": "US",
+      "BillingStateCode": "MI"
+    },
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "Acct13"
+      },
+      "Name": "Westbrook Women's Health",
+      "Type": "Prospect",
+      "Industry": "Healthcare",
+      "BillingCity": "Portland",
+      "Description": "GuidePilot test data",
+      "Opportunities": {
+        "records": [
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp13"
+            },
+            "Name": "Westbrook - Neurology Sample Program",
+            "StageName": "Proposal/Price Quote",
+            "CloseDate": "2027-02-12",
+            "Amount": 155000,
+            "Type": "New Customer",
+            "LeadSource": "Other",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp28"
+            },
+            "Name": "Westbrook - Hospital Formulary Renewal",
+            "StageName": "Negotiation/Review",
+            "CloseDate": "2027-03-17",
+            "Amount": 285000,
+            "Type": "New Customer",
+            "LeadSource": "Other",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp43"
+            },
+            "Name": "Westbrook - Dermatology Launch",
+            "StageName": "Closed Lost",
+            "CloseDate": "2026-05-19",
+            "Amount": 170000,
+            "Type": "New Customer",
+            "LeadSource": "Trade Show",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp58"
+            },
+            "Name": "Westbrook - Immunology Starter Kit",
+            "StageName": "Prospecting",
+            "CloseDate": "2027-01-02",
+            "Amount": 265000,
+            "Type": "New Customer",
+            "LeadSource": "Partner Referral",
+            "Description": "GuidePilot test data"
+          }
+        ]
+      },
+      "AccountNumber": "GPTEST-013",
+      "BillingCountryCode": "US",
+      "BillingStateCode": "OR"
+    },
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "Acct14"
+      },
+      "Name": "Cedar Hills Orthopedics",
+      "Type": "Customer",
+      "Industry": "Healthcare",
+      "BillingCity": "Nashville",
+      "Description": "GuidePilot test data",
+      "Opportunities": {
+        "records": [
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp14"
+            },
+            "Name": "Cedar - Oncology Formulary Listing",
+            "StageName": "Closed Won",
+            "CloseDate": "2026-01-29",
+            "Amount": 45000,
+            "Type": "New Customer",
+            "LeadSource": "Phone Inquiry",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp29"
+            },
+            "Name": "Cedar - Respiratory Line Extension",
+            "StageName": "Needs Analysis",
+            "CloseDate": "2027-05-14",
+            "Amount": 470000,
+            "Type": "Existing Customer - Upgrade",
+            "LeadSource": "Trade Show",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp44"
+            },
+            "Name": "Cedar - Patient Support Program",
+            "StageName": "Prospecting",
+            "CloseDate": "2027-05-27",
+            "Amount": 75000,
+            "Type": "New Customer",
+            "LeadSource": "Other",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp59"
+            },
+            "Name": "Cedar - Neurology Sample Program",
+            "StageName": "Prospecting",
+            "CloseDate": "2027-02-27",
+            "Amount": 60000,
+            "Type": "New Customer",
+            "LeadSource": "Trade Show",
+            "Description": "GuidePilot test data"
+          }
+        ]
+      },
+      "AccountNumber": "GPTEST-014",
+      "BillingCountryCode": "US",
+      "BillingStateCode": "TN"
+    },
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "Acct15"
+      },
+      "Name": "Bayside Infectious Disease Clinic",
+      "Type": "Prospect",
+      "Industry": "Healthcare",
+      "BillingCity": "Tampa",
+      "Description": "GuidePilot test data",
+      "Opportunities": {
+        "records": [
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp15"
+            },
+            "Name": "Bayside - Diabetes Care Program",
+            "StageName": "Proposal/Price Quote",
+            "CloseDate": "2027-04-11",
+            "Amount": 450000,
+            "Type": "Existing Customer - Upgrade",
+            "LeadSource": "Other",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp30"
+            },
+            "Name": "Bayside - Dermatology Launch",
+            "StageName": "Closed Won",
+            "CloseDate": "2026-03-31",
+            "Amount": 345000,
+            "Type": "Existing Customer - Upgrade",
+            "LeadSource": "Web",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp45"
+            },
+            "Name": "Bayside - Cardiology Portfolio",
+            "StageName": "Needs Analysis",
+            "CloseDate": "2027-06-04",
+            "Amount": 70000,
+            "Type": "New Customer",
+            "LeadSource": "Phone Inquiry",
+            "Description": "GuidePilot test data"
+          },
+          {
+            "attributes": {
+              "type": "Opportunity",
+              "referenceId": "Opp60"
+            },
+            "Name": "Bayside - Hospital Formulary Renewal",
+            "StageName": "Negotiation/Review",
+            "CloseDate": "2027-04-10",
+            "Amount": 75000,
+            "Type": "New Customer",
+            "LeadSource": "Other",
+            "Description": "GuidePilot test data"
+          }
+        ]
+      },
+      "AccountNumber": "GPTEST-015",
+      "BillingCountryCode": "US",
+      "BillingStateCode": "FL"
+    }
+  ]
+}

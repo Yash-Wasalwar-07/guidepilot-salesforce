@@ -1,0 +1,49 @@
+<template>
+    <lightning-card title={title} icon-name="utility:knowledge_base">
+        <div class="slds-p-horizontal_small">
+            <p class="context slds-text-body_small slds-text-color_weak">{pageLabel}</p>
+
+            <div class="log" lwc:ref="log" aria-live="polite">
+                <template lwc:if={isEmpty}>
+                    <p class="empty slds-text-color_weak">
+                        Ask about this page by field name, for example {exampleQuestion} or "What happens after I save?"
+                    </p>
+                </template>
+                <template for:each={messages} for:item="m">
+                    <div key={m.id} class={m.css}>
+                        <lightning-formatted-text value={m.text} linkify></lightning-formatted-text>
+                        <template lwc:if={m.badgeLabel}>
+                            <div class="meta">
+                                <span class={m.badgeCss}>{m.badgeLabel}</span>
+                                <template lwc:if={m.canRate}>
+                                    <span class="rate">
+                                        <lightning-button-icon icon-name="utility:like" variant="bare"
+                                            alternative-text="Helpful" title="Helpful"
+                                            data-id={m.id} data-rating="up" onclick={rate}></lightning-button-icon>
+                                        <lightning-button-icon icon-name="utility:dislike" variant="bare"
+                                            alternative-text="Not helpful" title="Not helpful"
+                                            data-id={m.id} data-rating="down" onclick={rate}></lightning-button-icon>
+                                    </span>
+                                </template>
+                                <template lwc:if={m.rated}>
+                                    <span class="rated slds-text-color_weak">{m.rated}</span>
+                                </template>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+                <template lwc:if={busy}>
+                    <p class="thinking slds-text-color_weak">{busyText}</p>
+                </template>
+            </div>
+
+            <div class="composer" onkeydown={handleKeydown}>
+                <lightning-textarea label="Ask GuidePilot" variant="label-hidden" value={question}
+                    placeholder="Ask a question (Enter to send)" max-length="4000"
+                    onchange={handleInput} disabled={busy}></lightning-textarea>
+                <lightning-button variant="brand" label="Ask" onclick={send} disabled={cannotSend}
+                    class="send"></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>

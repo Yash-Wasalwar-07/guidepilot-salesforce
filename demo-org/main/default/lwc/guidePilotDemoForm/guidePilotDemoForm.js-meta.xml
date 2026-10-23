@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>68.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>GuidePilot Demo Form</masterLabel>
+    <description>Entry form that tells the GuidePilot panel which field the rep is in.</description>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property name="title" type="String" label="Title" default="Details"/>
+            <property name="fieldList" type="String" label="Fields (API names, comma-separated)" default="Name,StageName,CloseDate,Amount,Type,LeadSource"/>
+        </targetConfig>
+        <targetConfig targets="lightning__AppPage">
+            <property name="title" type="String" label="Title" default="New Opportunity"/>
+            <property name="formObject" type="String" label="Object (API name)" default="Opportunity"/>
+            <property name="fieldList" type="String" label="Fields (API names, comma-separated)" default="Name,StageName,CloseDate,Amount,Type,LeadSource"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

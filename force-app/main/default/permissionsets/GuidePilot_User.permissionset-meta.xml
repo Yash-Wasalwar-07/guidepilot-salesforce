@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Assign to reps who should see GuidePilot. Lets them run the controller and use the
+     API credential (without ever seeing the key). -->
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <classAccesses>
+        <apexClass>GuidePilotController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <description>Use the GuidePilot knowledge agent panel.</description>
+    <externalCredentialPrincipalAccesses>
+        <enabled>true</enabled>
+        <externalCredentialPrincipal>GuidePilot_API-GuidePilotPrincipal</externalCredentialPrincipal>
+    </externalCredentialPrincipalAccesses>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>GuidePilot User</label>
+</PermissionSet>

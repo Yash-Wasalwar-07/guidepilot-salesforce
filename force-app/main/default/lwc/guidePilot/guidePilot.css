@@ -1,0 +1,86 @@
+.context {
+    margin-bottom: 0.5rem;
+}
+
+.log {
+    max-height: 26rem;
+    min-height: 6rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+}
+
+.empty,
+.thinking {
+    font-size: 0.8125rem;
+}
+
+.message {
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    max-width: 92%;
+    font-size: 0.8125rem;
+    word-break: break-word;
+}
+
+.message_rep {
+    align-self: flex-end;
+    background: var(--slds-g-color-brand-base-95, #eef4ff);
+}
+
+.message_agent {
+    align-self: flex-start;
+    border: 1px solid var(--slds-g-color-border-base-1, #e5e5e5);
+}
+
+.message_error {
+    align-self: flex-start;
+    background: var(--slds-g-color-error-base-95, #fef1ee);
+    color: var(--slds-g-color-error-base-40, #ba0517);
+}
+
+.meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.375rem;
+    font-size: 0.75rem;
+}
+
+.badge {
+    border-radius: 1rem;
+    padding: 0 0.5rem;
+    font-weight: 600;
+}
+
+.badge_full {
+    background: #ebf7e6;
+    color: #2e844a;
+}
+
+.badge_partial {
+    background: #fef1d6;
+    color: #8c4b02;
+}
+
+.badge_none {
+    background: #f3f3f3;
+    color: #5c5c5c;
+}
+
+.rate {
+    margin-left: auto;
+}
+
+.composer {
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-end;
+    margin-top: 0.5rem;
+}
+
+.composer lightning-textarea {
+    flex: 1;
+}

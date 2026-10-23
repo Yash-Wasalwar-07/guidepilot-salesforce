@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Lets entry forms tell the GuidePilot panel which field the rep is working on.
+     Any form can publish here; the panel listens and sends the field with the next question. -->
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>GuidePilot Context</masterLabel>
+    <isExposed>true</isExposed>
+    <description>The object, record, mode and field a rep is working on, for the GuidePilot panel.</description>
+    <lightningMessageFields>
+        <fieldName>objectApiName</fieldName>
+        <description>API name of the object on the form, e.g. Rep_Visit__c</description>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <fieldName>recordId</fieldName>
+        <description>Record Id when editing an existing record; empty for a new one</description>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <fieldName>mode</fieldName>
+        <description>new, edit or view</description>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <fieldName>fieldApiName</fieldName>
+        <description>API name of the field the rep is in, e.g. Visit_Type__c</description>
+    </lightningMessageFields>
+</LightningMessageChannel>

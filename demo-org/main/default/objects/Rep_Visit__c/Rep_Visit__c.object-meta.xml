@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Rep visits to HCPs, modelled on the Rep Visit integration specification (Rep_Visit__c). -->
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Rep Visit</label>
+    <pluralLabel>Rep Visits</pluralLabel>
+    <description>A rep's visit to a healthcare professional: type, status, timing, outcome and next steps.</description>
+    <nameField>
+        <label>Visit Number</label>
+        <type>AutoNumber</type>
+        <displayFormat>RV-{0000}</displayFormat>
+        <startingNumber>1</startingNumber>
+    </nameField>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <sharingModel>ReadWrite</sharingModel>
+    <enableActivities>true</enableActivities>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableFeeds>false</enableFeeds>
+    <enableBulkApi>true</enableBulkApi>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+</CustomObject>
