@@ -129,6 +129,37 @@ private class GuidePilotControllerTest {
     }
 
     @IsTest
+    static void startTurnPostsQuestionAndPage() {
+        ApiMock mock = new ApiMock(202, '{"turn_id":"' + SESSION + '"}');
+        Test.setMock(HttpCalloutMock.class, mock);
+        Test.startTest();
+        Map<String, Object> r = GuidePilotController.startTurn(SESSION, 'What should I pick?', 'Opportunity', null, 'new', 'StageName');
+        Test.stopTest();
+        Assert.areEqual(SESSION, r.get('turn_id'));
+        Assert.isTrue(mock.last.getEndpoint().endsWith('/api/sessions/' + SESSION + '/turns'));
+        Map<String, Object> page = (Map<String, Object>) ((Map<String, Object>) JSON.deserializeUntyped(mock.last.getBody())).get('page');
+        Assert.areEqual('StageName', page.get('field_in_focus'));
+    }
+
+    @IsTest
+    static void pollTurnReturnsProgress() {
+        ApiMock mock = new ApiMock(200, '{"status":"running","stage":"writing","answer_so_far":"Pick Pros"}');
+        Test.setMock(HttpCalloutMock.class, mock);
+        Test.startTest();
+        Map<String, Object> r = GuidePilotController.pollTurn(SESSION, SESSION);
+        Test.stopTest();
+        Assert.areEqual('running', r.get('status'));
+        Assert.areEqual('Pick Pros', r.get('answer_so_far'));
+        Assert.areEqual('GET', mock.last.getMethod());
+        try {
+            GuidePilotController.pollTurn(SESSION, '../bad');
+            Assert.fail('expected an error');
+        } catch (AuraHandledException e) {
+            Assert.isTrue(e.getMessage().contains('no longer available'));
+        }
+    }
+
+    @IsTest
     static void feedbackIsSent() {
         ApiMock mock = new ApiMock(204, null);
         Test.setMock(HttpCalloutMock.class, mock);

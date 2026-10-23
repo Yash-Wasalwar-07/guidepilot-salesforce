@@ -131,3 +131,7 @@ Render's free plan stops the API after 15 minutes without requests and answers *
 
 - **`GuidePilotKeepAlive`** (scheduled Apex) pings `/health` through the Named Credential every 10 minutes. Start: `sf apex run --file scripts/apex/start-guidepilot-keep-alive.apex`; stop (e.g. on always-on hosting): `scripts/apex/stop-guidepilot-keep-alive.apex`. Jobs are named "GuidePilot keep-alive :00" ... ":50" (Setup > Scheduled Jobs).
 - If it's asleep anyway, `GuidePilotController` reports "GuidePilot is starting up" for a 502/503/504 without a GuidePilot error body, and the panel shows "GuidePilot is waking up..." and retries up to 3 times, 10 seconds apart. Callouts wait up to 120 seconds, Salesforce's maximum.
+
+## Streaming answers
+
+Apex can't stream, so the panel uses background turns: `GuidePilotController.startTurn` starts the answer (`POST /api/sessions/{id}/turns`), then the panel calls `pollTurn` every 0.7 s (`GET .../turns/{turn_id}`). It shows the current step ("Understanding your question...", "Searching training documents and Salesforce data...", "Writing the answer...") and the answer text as it's written, then the sources, coverage badge and feedback buttons when it's done. Everything still goes through Apex and the Named Credential, so no CORS or CSP setup is needed in any org. `ask` (all at once) is kept for other callers.

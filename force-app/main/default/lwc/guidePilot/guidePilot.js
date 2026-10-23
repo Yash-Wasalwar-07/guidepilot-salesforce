@@ -4,11 +4,20 @@ import { getObjectInfo } from 'lightning/uiObjectInfoApi';
 import { subscribe, unsubscribe, MessageContext, APPLICATION_SCOPE } from 'lightning/messageService';
 import GUIDEPILOT_CONTEXT from '@salesforce/messageChannel/GuidePilotContext__c';
 import startSession from '@salesforce/apex/GuidePilotController.startSession';
-import ask from '@salesforce/apex/GuidePilotController.ask';
+import startTurn from '@salesforce/apex/GuidePilotController.startTurn';
+import pollTurn from '@salesforce/apex/GuidePilotController.pollTurn';
 import sendFeedback from '@salesforce/apex/GuidePilotController.feedback';
 
 const WAKE_RETRIES = 3;
 const WAKE_WAIT_MS = 10000;
+const POLL_MS = 700; // how often the panel checks for more of the answer
+const MAX_WAIT_MS = 180000;
+const MAX_POLL_FAILURES = 3;
+const STAGES = {
+    understanding: 'Understanding your question...',
+    searching: 'Searching training documents and Salesforce data...',
+    writing: 'Writing the answer...'
+};
 
 const COVERAGE = {
     full: { label: 'Answered', css: 'badge badge_full' },
@@ -149,50 +158,90 @@ export default class GuidePilot extends LightningElement {
             return;
         }
         this.busy = true;
-        this.busyText = 'Searching training, documentation and data...';
+        this.busyText = STAGES.understanding;
         this.question = '';
         this.push({ role: 'rep', text: question });
+        const liveId = this.push({ role: 'agent', text: '', live: true });
         try {
-            const result = await this.askWhileWaking(question);
-            this.push({ role: 'agent', text: result.answer, coverage: result.coverage });
+            const turnId = await this.startWhileWaking(question);
+            const result = await this.follow(turnId, liveId);
+            const badge = result.coverage ? COVERAGE[result.coverage] : null;
+            this.update(liveId, {
+                text: result.answer,
+                css: 'message message_agent',
+                badgeLabel: badge ? badge.label : null,
+                badgeCss: badge ? badge.css : null,
+                canRate: true
+            });
         } catch (error) {
-            this.push({ role: 'error', text: errorMessage(error) });
+            this.update(liveId, { role: 'error', text: errorMessage(error), css: 'message message_error', canRate: false });
         } finally {
             this.busy = false;
         }
     }
 
     // A host that sleeps when idle answers "starting up" for a while: wait and retry instead of failing.
-    async askWhileWaking(question) {
+    async startWhileWaking(question) {
         for (let attempt = 0; ; attempt++) {
             try {
-                return await this.askWithSession(question);
+                return await this.startWithSession(question);
             } catch (error) {
                 if (attempt >= WAKE_RETRIES || !errorMessage(error).includes('starting up')) {
                     throw error;
                 }
                 this.busyText = 'GuidePilot is waking up, this can take a minute...';
-                // eslint-disable-next-line @lwc/lwc/no-async-operation
-                await new Promise((resolve) => setTimeout(resolve, WAKE_WAIT_MS));
+                await sleep(WAKE_WAIT_MS);
             }
         }
     }
 
-    async askWithSession(question) {
+    async startWithSession(question) {
         const page = this.page;
         if (!this.sessionId) {
             this.sessionId = (await startSession(page)).session_id;
         }
         try {
-            return await ask({ sessionId: this.sessionId, question, ...page });
+            return (await startTurn({ sessionId: this.sessionId, question, ...page })).turn_id;
         } catch (error) {
             if (!errorMessage(error).includes('expired')) {
                 throw error;
             }
             // Sessions expire after inactivity on the server: start a new one and retry once.
             this.sessionId = (await startSession(page)).session_id;
-            return ask({ sessionId: this.sessionId, question, ...page });
+            return (await startTurn({ sessionId: this.sessionId, question, ...page })).turn_id;
         }
+    }
+
+    // Check for more of the answer until it's done; show each stage and the text as it grows.
+    async follow(turnId, liveId) {
+        const deadline = Date.now() + MAX_WAIT_MS;
+        let failures = 0;
+        while (Date.now() < deadline) {
+            await sleep(POLL_MS);
+            let progress;
+            try {
+                progress = await pollTurn({ sessionId: this.sessionId, turnId });
+                failures = 0;
+            } catch (error) {
+                if (++failures >= MAX_POLL_FAILURES) {
+                    throw error;
+                }
+                continue;
+            }
+            if (progress.stage && STAGES[progress.stage]) {
+                this.busyText = STAGES[progress.stage];
+            }
+            if (progress.answer_so_far) {
+                this.update(liveId, { text: progress.answer_so_far, css: 'message message_agent' });
+            }
+            if (progress.status === 'done') {
+                return progress.result;
+            }
+            if (progress.status === 'error') {
+                throw new Error(progress.error || 'GuidePilot could not answer.');
+            }
+        }
+        throw new Error('GuidePilot is taking too long. Please try again.');
     }
 
     async rate(event) {
@@ -207,28 +256,32 @@ export default class GuidePilot extends LightningElement {
         }
     }
 
-    push({ role, text, coverage }) {
+    push({ role, text, coverage, live = false }) {
         const badge = coverage ? COVERAGE[coverage] : null;
         // Feedback rates the latest answer only, so older answers lose their buttons.
         const older = role === 'agent' ? this.messages.map((m) => ({ ...m, canRate: false })) : this.messages;
+        const id = this.nextId++;
         this.messages = [
             ...older,
             {
-                id: this.nextId++,
+                id,
                 role,
                 text,
-                css: `message message_${role}`,
+                // An answer still being written stays hidden until its first words arrive.
+                css: `message message_${role}` + (live && !text ? ' slds-hide' : ''),
                 badgeLabel: badge ? badge.label : null,
                 badgeCss: badge ? badge.css : null,
-                canRate: role === 'agent',
+                canRate: role === 'agent' && !live,
                 rated: null
             }
         ];
         this.scrollPending = true;
+        return id;
     }
 
     update(id, changes) {
         this.messages = this.messages.map((m) => (m.id === id ? { ...m, ...changes } : m));
+        this.scrollPending = true;
     }
 
     renderedCallback() {
@@ -237,6 +290,11 @@ export default class GuidePilot extends LightningElement {
             this.scrollPending = false;
         }
     }
+}
+
+function sleep(ms) {
+    // eslint-disable-next-line @lwc/lwc/no-async-operation
+    return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 function errorMessage(error) {

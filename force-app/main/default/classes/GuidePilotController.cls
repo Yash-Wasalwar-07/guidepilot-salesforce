@@ -46,6 +46,35 @@ public with sharing class GuidePilotController {
         return send('POST', '/api/sessions/' + sessionId + '/messages', body);
     }
 
+    /**
+     * Starts answering in the background and returns { turn_id }. Apex can't stream, so the panel
+     * calls pollTurn about once a second and shows the answer as it's being written.
+     */
+    @AuraEnabled
+    public static Map<String, Object> startTurn(
+        String sessionId, String question, String objectApiName, String recordId, String mode, String fieldInFocus
+    ) {
+        checkSession(sessionId);
+        if (String.isBlank(question) || question.length() > MAX_QUESTION_CHARS) {
+            throw error('Please ask a question of up to ' + MAX_QUESTION_CHARS + ' characters.');
+        }
+        Map<String, Object> body = new Map<String, Object>{
+            'question' => question.trim(),
+            'page' => page(objectApiName, recordId, mode, fieldInFocus)
+        };
+        return send('POST', '/api/sessions/' + sessionId + '/turns', body);
+    }
+
+    /** Progress of a background answer: { status, stage, answer_so_far, result, error }. */
+    @AuraEnabled
+    public static Map<String, Object> pollTurn(String sessionId, String turnId) {
+        checkSession(sessionId);
+        if (turnId == null || !SESSION_ID.matcher(turnId).matches()) {
+            throw error('That answer is no longer available. Please ask again.');
+        }
+        return send('GET', '/api/sessions/' + sessionId + '/turns/' + turnId, null);
+    }
+
     /** Records thumbs up or down on the latest answer. */
     @AuraEnabled
     public static void feedback(String sessionId, String rating, String comment) {
