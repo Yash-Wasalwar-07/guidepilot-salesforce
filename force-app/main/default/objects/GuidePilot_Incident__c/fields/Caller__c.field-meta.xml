@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Caller__c</fullName>
+    <label>Caller</label>
+    <type>Lookup</type>
+    <referenceTo>User</referenceTo>
+    <relationshipName>GuidePilot_Incidents</relationshipName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <inlineHelpText>The rep who asked the question.</inlineHelpText>
+</CustomField>

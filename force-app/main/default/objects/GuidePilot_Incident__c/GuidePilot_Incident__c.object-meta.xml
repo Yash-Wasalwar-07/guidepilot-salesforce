@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mock ServiceNow incident: raised when GuidePilot can't answer a question, owned by the L1 queue.
+     Stands in for a real ServiceNow incident until that integration is connected. -->
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>GuidePilot Incident</label>
+    <pluralLabel>GuidePilot Incidents</pluralLabel>
+    <description>A question GuidePilot could not answer, for L1 support to resolve (mock of a ServiceNow incident).</description>
+    <nameField>
+        <label>Number</label>
+        <type>AutoNumber</type>
+        <displayFormat>INC{0000000}</displayFormat>
+        <startingNumber>1</startingNumber>
+    </nameField>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <sharingModel>Private</sharingModel>
+    <externalSharingModel>Private</externalSharingModel>
+    <enableActivities>false</enableActivities>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableFeeds>false</enableFeeds>
+    <enableBulkApi>true</enableBulkApi>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+</CustomObject>

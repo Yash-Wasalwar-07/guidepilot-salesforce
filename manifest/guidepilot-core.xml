@@ -3,11 +3,43 @@
     <types>
         <members>GuidePilotController</members>
         <members>GuidePilotControllerTest</members>
+        <members>GuidePilotIncidents</members>
         <name>ApexClass</name>
+    </types>
+    <types>
+        <members>GuidePilot_Incident_Queue</members>
+        <name>CustomLabel</name>
+    </types>
+    <types>
+        <members>GuidePilot_Incident__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>GuidePilot_Incident__c.Assignment_Group__c</members>
+        <members>GuidePilot_Incident__c.Caller__c</members>
+        <members>GuidePilot_Incident__c.Category__c</members>
+        <members>GuidePilot_Incident__c.Description__c</members>
+        <members>GuidePilot_Incident__c.Field_Name__c</members>
+        <members>GuidePilot_Incident__c.Object_Name__c</members>
+        <members>GuidePilot_Incident__c.Priority__c</members>
+        <members>GuidePilot_Incident__c.Record_Id__c</members>
+        <members>GuidePilot_Incident__c.Resolution_Notes__c</members>
+        <members>GuidePilot_Incident__c.Short_Description__c</members>
+        <members>GuidePilot_Incident__c.State__c</members>
+        <members>GuidePilot_Incident__c.Turn_Id__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>GuidePilot_Incident__c</members>
+        <name>CustomTab</name>
     </types>
     <types>
         <members>GuidePilot_API</members>
         <name>ExternalCredential</name>
+    </types>
+    <types>
+        <members>GuidePilot_Incident__c-GuidePilot Incident Layout</members>
+        <name>Layout</name>
     </types>
     <types>
         <members>guidePilot</members>
@@ -22,8 +54,18 @@
         <name>NamedCredential</name>
     </types>
     <types>
+        <members>GuidePilot_L1_Support</members>
         <members>GuidePilot_User</members>
         <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>GuidePilot_Incident__c.All</members>
+        <members>GuidePilot_Incident__c.Open_L1_Incidents</members>
+        <name>ListView</name>
+    </types>
+    <types>
+        <members>GuidePilot_L1_Support</members>
+        <name>Queue</name>
     </types>
     <version>68.0</version>
 </Package>

@@ -2,7 +2,7 @@
 
 This project holds the Salesforce side of **GuidePilot**, the knowledge agent for sales reps. See **[GUIDEPILOT.md](GUIDEPILOT.md)** for what's here and how to deploy it.
 
-- `force-app/`: the GuidePilot core (panel, Apex, credentials, permission set). Deploy to any org with `scripts/deploy-guidepilot-core.sh <alias>`.
+- `force-app/`: the GuidePilot core (panel, Apex, credentials, the GuidePilot Incident object and L1 queue, permission sets). Deploy to any org with `scripts/deploy-guidepilot-core.sh <alias>`.
 - `demo-org/`: personal dev-org test items only (Rep_Visit__c, demo form, keep-alive). Never deploy to a client org.
 - `data/`, `scripts/apex/`: test data and training documents for the dev org.
 

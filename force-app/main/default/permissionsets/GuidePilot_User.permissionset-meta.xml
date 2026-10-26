@@ -6,11 +6,80 @@
         <apexClass>GuidePilotController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <description>Use the GuidePilot knowledge agent panel.</description>
+    <description>Use the GuidePilot knowledge agent panel, and read the incidents raised for your unanswered questions.</description>
     <externalCredentialPrincipalAccesses>
         <enabled>true</enabled>
         <externalCredentialPrincipal>GuidePilot_API-GuidePilotPrincipal</externalCredentialPrincipal>
     </externalCredentialPrincipalAccesses>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>GuidePilot_Incident__c.Assignment_Group__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>GuidePilot_Incident__c.Caller__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>GuidePilot_Incident__c.Category__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>GuidePilot_Incident__c.Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>GuidePilot_Incident__c.Field_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>GuidePilot_Incident__c.Object_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>GuidePilot_Incident__c.Priority__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>GuidePilot_Incident__c.Record_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>GuidePilot_Incident__c.Resolution_Notes__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>GuidePilot_Incident__c.Short_Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>GuidePilot_Incident__c.State__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>GuidePilot_Incident__c.Turn_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
     <label>GuidePilot User</label>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>GuidePilot_Incident__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
 </PermissionSet>

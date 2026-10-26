@@ -43,7 +43,7 @@ public with sharing class GuidePilotController {
             'question' => question.trim(),
             'page' => page(objectApiName, recordId, mode, fieldInFocus)
         };
-        return send('POST', '/api/sessions/' + sessionId + '/messages', body);
+        return withIncident(send('POST', '/api/sessions/' + sessionId + '/messages', body), null);
     }
 
     /**
@@ -72,7 +72,11 @@ public with sharing class GuidePilotController {
         if (turnId == null || !SESSION_ID.matcher(turnId).matches()) {
             throw error('That answer is no longer available. Please ask again.');
         }
-        return send('GET', '/api/sessions/' + sessionId + '/turns/' + turnId, null);
+        Map<String, Object> progress = send('GET', '/api/sessions/' + sessionId + '/turns/' + turnId, null);
+        if (progress.get('status') == 'done' && progress.get('result') instanceof Map<String, Object>) {
+            withIncident((Map<String, Object>) progress.get('result'), turnId);
+        }
+        return progress;
     }
 
     /** Records thumbs up or down on the latest answer. */
@@ -90,6 +94,27 @@ public with sharing class GuidePilotController {
     }
 
     // -- helpers ---------------------------------------------------------------------
+
+    /**
+     * When GuidePilot couldn't answer, raise an incident for L1 support and tell the rep its number.
+     * A failure here never hides the answer: it's logged and the answer is returned as it was.
+     */
+    private static Map<String, Object> withIncident(Map<String, Object> result, String turnId) {
+        if (result == null || result.get('routed_to_sales_ops') != true) {
+            return result;
+        }
+        try {
+            GuidePilot_Incident__c incident = GuidePilotIncidents.raise(result, turnId);
+            result.put('incident', new Map<String, Object>{ 'id' => incident.Id, 'number' => incident.Name });
+            String team = String.isNotBlank(incident.Assignment_Group__c) ? incident.Assignment_Group__c : 'support';
+            result.put('answer', String.valueOf(result.get('answer'))
+                + '\n\nIncident ' + incident.Name + ' has been raised for ' + team + '. Track it here: '
+                + GuidePilotIncidents.link(incident.Id));
+        } catch (Exception e) {
+            System.debug(LoggingLevel.ERROR, 'GuidePilot incident could not be raised: ' + e.getMessage());
+        }
+        return result;
+    }
 
     private static Map<String, Object> page(String objectApiName, String recordId, String mode, String fieldInFocus) {
         if (String.isBlank(objectApiName)) {

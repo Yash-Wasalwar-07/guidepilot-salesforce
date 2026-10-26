@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- L1 support queue that owns GuidePilot incidents. Add its members in Setup > Queues. -->
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>L1 Support</name>
+    <queueSobject>
+        <sobjectType>GuidePilot_Incident__c</sobjectType>
+    </queueSobject>
+</Queue>

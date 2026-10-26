@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Short_Description__c</fullName>
+    <label>Short Description</label>
+    <type>Text</type>
+    <length>160</length>
+    <required>false</required>
+    <inlineHelpText>The rep's question, shortened to 160 characters.</inlineHelpText>
+</CustomField>

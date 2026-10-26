@@ -21,7 +21,7 @@ The project has two folders:
 
 | Folder | What | Deploy where |
 | --- | --- | --- |
-| `force-app/` | **GuidePilot core**: `guidePilot` panel, `GuidePilotController` (+ tests), `GuidePilot_API` Named + External Credential, `GuidePilotContext` message channel, `GuidePilot_User` permission set | **Any org** |
+| `force-app/` | **GuidePilot core**: `guidePilot` panel, `GuidePilotController` and `GuidePilotIncidents` (+ tests), `GuidePilot_API` Named + External Credential, `GuidePilotContext` message channel, the `GuidePilot_Incident__c` object with its L1 Support queue, `GuidePilot_User` and `GuidePilot_L1_Support` permission sets | **Any org** |
 | `demo-org/` | Personal dev org only: our `Rep_Visit__c` (object, layout, list views, tab), Rep Visit permission sets, `guidePilotDemoForm`, `GuidePilotKeepAlive` (free-hosting workaround) | **Never to a client org** (it would clash with the client's own objects) |
 
 Both folders are package directories in `sfdx-project.json`, so each deploys on its own:
@@ -33,13 +33,14 @@ scripts/deploy-demo-org.sh sfdevorg          # personal org only: stops keep-ali
 
 Don't run a bare `sf project deploy start`, or right-click "Deploy" on the project root in VS Code, against a client org: both include `demo-org`. Deploying the `force-app` folder from VS Code is safe.
 
-The core creates no objects, fields, layouts or scheduled jobs, and needs no forms. GuidePilot reads whatever object and fields the org has, and when a rep asks about "this field" without naming it, it asks which field they mean. Entry forms that publish the focused field on `GuidePilotContext` are an optional extra.
+Apart from the GuidePilot Incident object (below), the core creates no objects, fields, layouts or scheduled jobs, and needs no forms. GuidePilot reads whatever object and fields the org has, and when a rep asks about "this field" without naming it, it asks which field they mean. Entry forms that publish the focused field on `GuidePilotContext` are an optional extra.
 
 Per-org setup (settings and access, not code changes):
 
 1. **API connection:** the agent API reads one org through a read-only integration user. Point it at the org with its `.env` (`SF_DOMAIN`, `SF_CONSUMER_KEY`, `SF_CONSUMER_SECRET`) and give that user read access to the objects and training files reps ask about.
 2. **API key:** Setup → Named Credentials → External Credentials → GuidePilot API → Principals → `ApiKey` (secrets can't be deployed). Change the Named Credential URL only if the API is hosted elsewhere.
 3. **Access and placement:** assign the **GuidePilot User** permission set; add the **GuidePilot** component to the utility bar or record pages.
+4. **Unanswered questions:** add L1 agents to the **L1 Support** queue and assign them **GuidePilot L1 Support**. To use an existing queue instead, set the Custom Label `GuidePilot_Incident_Queue` to its API name (the queue must support GuidePilot Incident).
 
 ## 1. Make the API reachable from Salesforce
 
@@ -131,6 +132,20 @@ Render's free plan stops the API after 15 minutes without requests and answers *
 
 - **`GuidePilotKeepAlive`** (scheduled Apex) pings `/health` through the Named Credential every 10 minutes. Start: `sf apex run --file scripts/apex/start-guidepilot-keep-alive.apex`; stop (e.g. on always-on hosting): `scripts/apex/stop-guidepilot-keep-alive.apex`. Jobs are named "GuidePilot keep-alive :00" ... ":50" (Setup > Scheduled Jobs).
 - If it's asleep anyway, `GuidePilotController` reports "GuidePilot is starting up" for a 502/503/504 without a GuidePilot error body, and the panel shows "GuidePilot is waking up..." and retries up to 3 times, 10 seconds apart. Callouts wait up to 120 seconds, Salesforce's maximum.
+
+## Unanswered questions: GuidePilot Incidents
+
+When GuidePilot can't answer (the API returns `routed_to_sales_ops: true`), `GuidePilotController` calls `GuidePilotIncidents.raise`, which creates a **GuidePilot Incident** (`GuidePilot_Incident__c`), a mock of a ServiceNow incident until that integration is connected:
+
+- Number `INC0000001`..., State New, Priority 4 - Low, Category Documentation Gap, Caller = the rep.
+- Owned by the queue named in the Custom Label `GuidePilot_Incident_Queue` (default **L1 Support**, `GuidePilot_L1_Support`); Assignment Group holds the queue's name, as in ServiceNow.
+- Description: the question, how GuidePilot understood it, the page, what each source search found, and GuidePilot's reply.
+- One incident per answer (`Turn_Id__c` is a unique external Id, so a repeated poll can't create a duplicate).
+- The rep gets read access to their incident, and the answer ends with its number and a link.
+- Sharing is Private: reps see only their own incidents; **GuidePilot L1 Support** gives L1 agents read/edit on all of them, and the "Open L1 Incidents" list view shows the queue's open ones.
+- It runs without sharing so reps need no create access. If it fails, the answer is still shown and the error is logged.
+
+The agent's wording for routed answers comes from `GP_SALES_OPS_CONTACT` in the API's settings (set to `L1 Support`).
 
 ## Streaming answers
 

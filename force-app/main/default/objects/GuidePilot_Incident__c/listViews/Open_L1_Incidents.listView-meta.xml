@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Open_L1_Incidents</fullName>
+    <columns>NAME</columns>
+    <columns>Short_Description__c</columns>
+    <columns>State__c</columns>
+    <columns>Priority__c</columns>
+    <columns>Caller__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Queue</filterScope>
+    <filters>
+        <field>State__c</field>
+        <operation>equals</operation>
+        <value>New,In Progress,On Hold</value>
+    </filters>
+    <label>Open L1 Incidents</label>
+    <queue>GuidePilot_L1_Support</queue>
+</ListView>
