@@ -140,8 +140,9 @@ Render's free plan stops the API after 15 minutes without requests and answers *
 | Training | Word documents in Salesforce Files, and published Knowledge articles (the article object and its long/rich text fields are found automatically) | Access to the files; for Knowledge: Allow View Knowledge + read on the article object |
 | Salesforce data: fields | Label, help text, allowed values, required, default, controlling field; aggregated usage counts (groups under 5 hidden) | Read on the object and fields |
 | Salesforce data: process setup | Active approval processes, validation rules (error messages), record-triggered flows (name, description, when they run), Path guidance per stage. Field questions get only the validation rules on those fields. Cached 10 minutes. | **GuidePilot Integration** (View Setup) |
+| Salesforce data: Apex automation | Active Apex triggers on the object (the org's own code, not installed packages) and the classes they call, two levels deep, skipping test classes. The parts that match the question (up to 6,000 characters) are explained to the rep in plain words, as inferred, never quoted. Field questions only get code that mentions the field. Cached 10 minutes. | **GuidePilot Integration** (View Setup) |
 
-Answers are only as good as what admins wrote: descriptions on approval processes and flows, validation error messages, and Path guidance.
+Answers are only as good as what admins and developers wrote: descriptions on approval processes and flows, validation error messages, Path guidance, and readable Apex (comments and clear error messages help). The code is sent to the AI model to be explained, so it shouldn't contain credentials.
 
 ## Unanswered questions: GuidePilot Incidents
 
