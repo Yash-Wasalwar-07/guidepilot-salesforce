@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Planned_End_After_Start</fullName>
+    <active>true</active>
+    <description>Planned End can't be before Planned Start.</description>
+    <errorConditionFormula>AND(NOT(ISBLANK(Planned_Start__c)), NOT(ISBLANK(Planned_End__c)), Planned_End__c &lt; Planned_Start__c)</errorConditionFormula>
+    <errorDisplayField>Planned_End__c</errorDisplayField>
+    <errorMessage>Planned End must be after Planned Start.</errorMessage>
+</ValidationRule>

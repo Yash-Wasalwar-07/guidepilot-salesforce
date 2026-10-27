@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Opportunity</entityName>
+    <fieldName>StageName</fieldName>
+    <masterLabel>Opportunity Sales Path</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Amount</fieldNames>
+        <fieldNames>CloseDate</fieldNames>
+        <info>&lt;p&gt;Send the written proposal or quote. Discounts above 15% need district manager approval before the proposal goes out. Move to Negotiation/Review once the customer responds.&lt;/p&gt;</info>
+        <picklistValueName>Proposal/Price Quote</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Amount</fieldNames>
+        <fieldNames>NextStep</fieldNames>
+        <info>&lt;p&gt;Agree terms with procurement and update Amount to the negotiated value. Record the agreed next step in Next Step.&lt;/p&gt;</info>
+        <picklistValueName>Negotiation/Review</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>__MASTER__</recordTypeName>
+</PathAssistant>

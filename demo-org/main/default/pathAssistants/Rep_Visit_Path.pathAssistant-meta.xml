@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Rep_Visit__c</entityName>
+    <fieldName>Status__c</fieldName>
+    <masterLabel>Rep Visit Path</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Contact__c</fieldNames>
+        <fieldNames>Planned_Start__c</fieldNames>
+        <info>&lt;p&gt;Pick the HCP and a proposed time, then confirm it with the HCP&apos;s office. Educational visits need manager approval: submit the visit for approval now.&lt;/p&gt;</info>
+        <picklistValueName>Planned</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Planned_Start__c</fieldNames>
+        <fieldNames>Planned_End__c</fieldNames>
+        <info>&lt;p&gt;The time is confirmed with the HCP&apos;s office. Prepare approved materials only; check sample stock before the visit.&lt;/p&gt;</info>
+        <picklistValueName>Scheduled</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Outcome__c</fieldNames>
+        <fieldNames>Next_Steps__c</fieldNames>
+        <fieldNames>Follow_Up_Date__c</fieldNames>
+        <info>&lt;p&gt;Record the Outcome the same day. Add Next Steps and a Follow-Up Date if the HCP asked for anything; a follow-up task is created for you automatically.&lt;/p&gt;</info>
+        <picklistValueName>Completed</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>__MASTER__</recordTypeName>
+</PathAssistant>

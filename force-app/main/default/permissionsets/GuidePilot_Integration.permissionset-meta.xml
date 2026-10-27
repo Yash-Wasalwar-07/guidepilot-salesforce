@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Assign to the GuidePilot integration user (the API user the agent signs in as). View Setup lets
+     it read how each object's process is configured: approval processes, validation rules,
+     record-triggered flows and Path guidance. It is read-only (View Roles is required by View Setup). -->
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Lets the GuidePilot integration user read process setup (approval processes, validation rules, flows, Path guidance). Read-only.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>GuidePilot Integration</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ApiEnabled</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewRoles</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewSetup</name>
+    </userPermissions>
+</PermissionSet>

@@ -2,8 +2,8 @@
 
 This project holds the Salesforce side of **GuidePilot**, the knowledge agent for sales reps. See **[GUIDEPILOT.md](GUIDEPILOT.md)** for what's here and how to deploy it.
 
-- `force-app/`: the GuidePilot core (panel, Apex, credentials, the GuidePilot Incident object and L1 queue, permission sets). Deploy to any org with `scripts/deploy-guidepilot-core.sh <alias>`.
-- `demo-org/`: personal dev-org test items only (Rep_Visit__c, demo form, keep-alive). Never deploy to a client org.
+- `force-app/`: the GuidePilot core (panel, Apex, credentials, the GuidePilot Incident object and L1 queue, permission sets including GuidePilot Integration for the API user). Deploy to any org with `scripts/deploy-guidepilot-core.sh <alias>`.
+- `demo-org/`: personal dev-org test items only (Rep_Visit__c, sample process setup: validation rules, a flow, an approval process and Paths; Knowledge settings and sample articles; demo form, keep-alive). Never deploy to a client org.
 - `data/`, `scripts/apex/`: test data and training documents for the dev org.
 
 The agent itself (Python API) is in the separate `guidepilot-agent` repository.
@@ -67,4 +67,3 @@ Transform your ideas into custom Lightning apps that extend CRM workflows direct
 - [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/)
 - [Salesforce CLI Plugin Development Guide](https://developer.salesforce.com/docs/platform/salesforce-cli-plugin/guide/conceptual-overview.html)
 - [Salesforce VS Code Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-

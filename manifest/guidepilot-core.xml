@@ -54,6 +54,7 @@
         <name>NamedCredential</name>
     </types>
     <types>
+        <members>GuidePilot_Integration</members>
         <members>GuidePilot_L1_Support</members>
         <members>GuidePilot_User</members>
         <name>PermissionSet</name>

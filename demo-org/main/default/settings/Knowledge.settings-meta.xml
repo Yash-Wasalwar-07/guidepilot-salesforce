@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Personal org only: Lightning Knowledge, so GuidePilot's article search can be tested. -->
+<KnowledgeSettings xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableKnowledge>true</enableKnowledge>
+    <enableLightningKnowledge>true</enableLightningKnowledge>
+</KnowledgeSettings>

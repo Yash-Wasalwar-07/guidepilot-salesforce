@@ -21,7 +21,7 @@ The project has two folders:
 
 | Folder | What | Deploy where |
 | --- | --- | --- |
-| `force-app/` | **GuidePilot core**: `guidePilot` panel, `GuidePilotController` and `GuidePilotIncidents` (+ tests), `GuidePilot_API` Named + External Credential, `GuidePilotContext` message channel, the `GuidePilot_Incident__c` object with its L1 Support queue, `GuidePilot_User` and `GuidePilot_L1_Support` permission sets | **Any org** |
+| `force-app/` | **GuidePilot core**: `guidePilot` panel, `GuidePilotController` and `GuidePilotIncidents` (+ tests), `GuidePilot_API` Named + External Credential, `GuidePilotContext` message channel, the `GuidePilot_Incident__c` object with its L1 Support queue, `GuidePilot_User`, `GuidePilot_L1_Support` and `GuidePilot_Integration` permission sets | **Any org** |
 | `demo-org/` | Personal dev org only: our `Rep_Visit__c` (object, layout, list views, tab), Rep Visit permission sets, `guidePilotDemoForm`, `GuidePilotKeepAlive` (free-hosting workaround) | **Never to a client org** (it would clash with the client's own objects) |
 
 Both folders are package directories in `sfdx-project.json`, so each deploys on its own:
@@ -37,7 +37,7 @@ Apart from the GuidePilot Incident object (below), the core creates no objects, 
 
 Per-org setup (settings and access, not code changes):
 
-1. **API connection:** the agent API reads one org through a read-only integration user. Point it at the org with its `.env` (`SF_DOMAIN`, `SF_CONSUMER_KEY`, `SF_CONSUMER_SECRET`) and give that user read access to the objects and training files reps ask about.
+1. **API connection:** the agent API reads one org through a read-only integration user. Point it at the org with its `.env` (`SF_DOMAIN`, `SF_CONSUMER_KEY`, `SF_CONSUMER_SECRET`) and give that user read access to the objects and training files reps ask about. Assign it **GuidePilot Integration** (View Setup, read-only) so GuidePilot can read each object's approval processes, validation rules, record-triggered flows and Path guidance. If the org uses Lightning Knowledge, also give it **Allow View Knowledge** and read access to the article object (`Knowledge__kav`) and its body fields; published articles are then searched with the training files.
 2. **API key:** Setup → Named Credentials → External Credentials → GuidePilot API → Principals → `ApiKey` (secrets can't be deployed). Change the Named Credential URL only if the API is hosted elsewhere.
 3. **Access and placement:** assign the **GuidePilot User** permission set; add the **GuidePilot** component to the utility bar or record pages.
 4. **Unanswered questions:** add L1 agents to the **L1 Support** queue and assign them **GuidePilot L1 Support**. To use an existing queue instead, set the Custom Label `GuidePilot_Incident_Queue` to its API name (the queue must support GuidePilot Incident).
@@ -132,6 +132,16 @@ Render's free plan stops the API after 15 minutes without requests and answers *
 
 - **`GuidePilotKeepAlive`** (scheduled Apex) pings `/health` through the Named Credential every 10 minutes. Start: `sf apex run --file scripts/apex/start-guidepilot-keep-alive.apex`; stop (e.g. on always-on hosting): `scripts/apex/stop-guidepilot-keep-alive.apex`. Jobs are named "GuidePilot keep-alive :00" ... ":50" (Setup > Scheduled Jobs).
 - If it's asleep anyway, `GuidePilotController` reports "GuidePilot is starting up" for a 502/503/504 without a GuidePilot error body, and the panel shows "GuidePilot is waking up..." and retries up to 3 times, 10 seconds apart. Callouts wait up to 120 seconds, Salesforce's maximum.
+
+## What GuidePilot reads
+
+| Source | What | Needs (integration user) |
+| --- | --- | --- |
+| Training | Word documents in Salesforce Files, and published Knowledge articles (the article object and its long/rich text fields are found automatically) | Access to the files; for Knowledge: Allow View Knowledge + read on the article object |
+| Salesforce data: fields | Label, help text, allowed values, required, default, controlling field; aggregated usage counts (groups under 5 hidden) | Read on the object and fields |
+| Salesforce data: process setup | Active approval processes, validation rules (error messages), record-triggered flows (name, description, when they run), Path guidance per stage. Field questions get only the validation rules on those fields. Cached 10 minutes. | **GuidePilot Integration** (View Setup) |
+
+Answers are only as good as what admins wrote: descriptions on approval processes and flows, validation error messages, and Path guidance.
 
 ## Unanswered questions: GuidePilot Incidents
 
