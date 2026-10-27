@@ -83,7 +83,7 @@ Open a record, or click **New** on an object, open the GuidePilot panel, and ask
 
 - **Field in focus:** standard record pages don't tell components which field the rep clicked, so reps name the field in their question. A custom entry form for an object can pass the focused field later.
 - **New-record page context:** on Lightning's standard New dialog the panel knows the object and that it's a new record. In the utility bar it updates as the rep navigates.
-- **Timeouts:** Apex waits up to 60 seconds; answers normally take about 10.
+- **Timeouts:** Apex waits up to 120 seconds (Salesforce's maximum); answers normally take about 10.
 - **Troubleshooting:** "GuidePilot is not reachable" means the Named Credential Url is wrong, the API is down, or the tunnel stopped. A 401 in the API log means the `ApiKey` doesn't match `API_KEY`. If reps get a credential access error, check they have the GuidePilot User permission set.
 
 ## Test data
